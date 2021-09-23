@@ -1,0 +1,19 @@
+# Copyright 2021 nickv
+# See LICENSE file for licensing details.
+#
+# Learn more about config at: https://juju.is/docs/sdk/config
+
+options:
+  declarative-config:
+    default: ""
+    description: |
+      When running in DB-less mode, this allows to update Kong run-time configuration of services, routes, etc.
+    type: string
+
+  mem-cache-size:
+    default: ""
+    description: |
+      Configures Kong's cache size. Especially important in DB-less mode, when the entire configuration and state resides in memory.
+      Example values are 1m, 4096k, etc. If empty, Kong's default is set, which is 128m.
+      See also https://docs.konghq.com/gateway-oss/2.5.x/configuration/#mem_cache_size
+    type: string

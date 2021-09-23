@@ -1,0 +1,20 @@
+admin_access_log = /dev/stdout
+admin_error_log = /dev/stderr
+admin_gui_access_log = /dev/stdout
+admin_gui_error_log = /dev/stderr
+admin_listen = {{ KONG_ADMIN_LISTEN }}
+proxy_listen = 0.0.0.0:8000, 0.0.0.0:8443 http2 ssl
+proxy_access_log = /dev/stdout
+proxy_error_log = /dev/stderr
+status_listen = 0.0.0.0:8100
+nginx_daemon = off
+{% if KONG_MEM_CACHE_SIZE %}
+mem_cache_size = {{ KONG_MEM_CACHE_SIZE }}
+{% endif %}
+prefix = /kong_prefix/
+{% if KONG_DATABASE == 'off' %}
+database = off
+{% else %}
+# NOT IMPLEMENTED
+{% endif %}
+plugins = bundled
